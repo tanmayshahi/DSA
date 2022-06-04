@@ -10,7 +10,7 @@ public class bubblesort {
             arr[i]= sc.nextInt();
         }
         for (int i=0;i<n;i++){
-            for(int j=0; j<n-i-1;j++){
+            for(int j=0; j<n-i-1;j++){//j goes to n-i-1 because the size of array keeps on decreasing after every pass so we write it like this
                 if(arr[j]>arr[j+1]){
                     int temp = arr[j];
                     arr[j]= arr[j+1];
