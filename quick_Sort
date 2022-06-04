@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+class quicksort {
+    int i, j, povit;
+    int n;
+    int arr[];
+
+    public void read() {
+        System.out.println("Enter the size of array\n");
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        arr = new int[n];
+        System.out.println("Enter the elements of array");
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+    }
+
+    public void quick(int low, int high) {
+        if (low > high)
+            return;
+        i = low + 1;
+        j = high;
+        povit = arr[low];
+        while (i <= j) {
+            while ((i <= high) && (arr[i] <= povit))
+                i++;
+            while ((arr[j]>povit) && (j >= low));
+                j--;
+            if (i < j) {
+                swap(i, j);
+            }
+        }
+        if(low<j){
+            swap(low,j);
+
+        }
+
+    quick(low, j-1);
+
+    quick(j+1, high);
+    }
+
+
+    public void swap(int x,int y){
+        int temp =arr[x];
+        arr[x]=arr[y];
+        arr[y]=temp;
+    }
+    public void display(){
+        System.out.println("Array in sorted order is");
+        for(int i=0;i<n;i++){
+            System.out.println(arr[i]);
+        }
+    }
+    int getSize()
+    {
+        return n;
+
+    }
+
+    public static void main(String[] args) {
+
+        quicksort a = new quicksort();
+        a.read();
+        a.display();
+        a.quick(0,a.getSize()-1);
+    }
+}
