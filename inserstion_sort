@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class dsa{
+    Scanner sc = new Scanner(System.in);
+    int n;
+    int arr[];
+    void acception(){
+        System.out.println("Enter size of array");
+        n = sc.nextInt();
+        arr = new int[n];
+        System.out.println("Enter the elements of array");
+        for(int i = 0;i<n;i++){
+            arr[i]= sc.nextInt();
+        }
+    }
+    void sorting(){
+        for(int i=1;i<=n-1;i++){
+            int temp = arr[i];
+            int j=i-1;
+            while((j>=0)&&(arr[j]>=temp)){
+                arr[j+1]= arr[j];
+                --j;
+            }
+            arr[j+1]=temp;
+        }
+    }
+    void display(){
+        for(int i=0;i<n;i++){
+            System.out.println(arr[i]);
+        }
+    }
+}
+public class insertionsort {
+    public static void main(String[] args) {
+        dsa A = new dsa();
+        A.acception();
+        A.sorting();
+        A.display();
+    }
